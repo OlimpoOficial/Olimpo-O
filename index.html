@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Oasis Elite</title>
+  <title>OLIMPO</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,6 +12,9 @@
   <style>
     :root {
       --gold: #ffcc00;
+      --olympus-gold: #ffd36a;
+      --olympus-blue: #6fd8ff;
+      --olympus-red: #b91414;
       --green: #25d366;
       --green-dark: #128c44;
     }
@@ -36,11 +39,11 @@
       background-image:
         linear-gradient(
           90deg,
-          rgba(0,0,0,0.94) 0%,
-          rgba(0,0,0,0.78) 45%,
-          rgba(0,0,0,0.42) 100%
+          rgba(0,0,0,0.92) 0%,
+          rgba(0,0,0,0.72) 44%,
+          rgba(0,0,0,0.30) 100%
         ),
-        url("assets/img/fondo-oasis.png");
+        url("fondo-coliseo-dioses.png");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -52,9 +55,43 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.18);
+      background:
+        radial-gradient(circle at 22% 18%, rgba(111, 216, 255, 0.16), transparent 32%),
+        radial-gradient(circle at 50% 8%, rgba(255, 211, 106, 0.14), transparent 38%),
+        radial-gradient(circle at 18% 58%, rgba(185, 20, 20, 0.10), transparent 35%),
+        rgba(0,0,0,0.18);
       z-index: 0;
       pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(
+          115deg,
+          transparent 0%,
+          rgba(111, 216, 255, 0.06) 30%,
+          transparent 47%,
+          rgba(255, 211, 106, 0.06) 65%,
+          transparent 100%
+        );
+      mix-blend-mode: screen;
+      z-index: 0;
+      pointer-events: none;
+      animation: auraFondo 8s ease-in-out infinite;
+    }
+
+    @keyframes auraFondo {
+      0%, 100% {
+        opacity: 0.45;
+        transform: translateX(-1.5%) scale(1);
+      }
+      50% {
+        opacity: 0.9;
+        transform: translateX(1.5%) scale(1.02);
+      }
     }
 
     .page {
@@ -75,17 +112,83 @@
       z-index: 5;
     }
 
-    h1 {
-      font-size: clamp(3.1rem, 6vw, 4.6rem);
+    .titulo-olimpo {
+      position: relative;
+      display: inline-block;
+      font-size: clamp(3.1rem, 6vw, 4.9rem);
       line-height: 1;
-      letter-spacing: clamp(3px, 0.6vw, 6px);
-      color: var(--gold);
+      letter-spacing: clamp(4px, 0.7vw, 8px);
+      color: #ffffff;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
+      font-weight: 900;
       text-shadow:
-        0 0 12px rgba(255,204,0,0.85),
-        0 0 34px rgba(255,204,0,0.32),
-        0 6px 20px rgba(0,0,0,0.95);
+        0 0 7px rgba(255,255,255,0.95),
+        0 0 18px rgba(111,216,255,0.90),
+        0 0 36px rgba(255,211,106,0.65),
+        0 0 70px rgba(185,20,20,0.38),
+        0 8px 26px rgba(0,0,0,1);
+      animation: tituloRespira 4s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .titulo-olimpo::before {
+      content: "";
+      position: absolute;
+      inset: -36px -58px;
+      background:
+        radial-gradient(circle at 20% 48%, rgba(111,216,255,0.50), transparent 42%),
+        radial-gradient(circle at 70% 48%, rgba(255,211,106,0.38), transparent 43%),
+        radial-gradient(circle at 50% 60%, rgba(185,20,20,0.28), transparent 45%),
+        linear-gradient(90deg, transparent, rgba(255,255,255,0.20), transparent);
+      filter: blur(23px);
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0.86;
+      animation: auroraOlimpo 5.2s ease-in-out infinite;
+    }
+
+    .titulo-olimpo::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -13px;
+      width: 82%;
+      height: 3px;
+      transform: translateX(-50%);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--olympus-blue),
+        #ffffff,
+        var(--olympus-gold),
+        transparent
+      );
+      border-radius: 999px;
+      box-shadow:
+        0 0 12px rgba(255,255,255,0.88),
+        0 0 24px rgba(111,216,255,0.72),
+        0 0 34px rgba(255,211,106,0.48);
+    }
+
+    @keyframes tituloRespira {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.018);
+      }
+    }
+
+    @keyframes auroraOlimpo {
+      0%, 100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 0.70;
+      }
+      50% {
+        transform: translateY(-8px) scale(1.14) rotate(1.5deg);
+        opacity: 1;
+      }
     }
 
     .btn-group {
@@ -154,12 +257,12 @@
 
     .btn-play {
       background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 55%, #cfcfcf 100%);
-      border: 3px solid var(--gold);
+      border: 3px solid var(--olympus-gold);
       font-size: 1.15rem;
     }
 
     .btn-main {
-      background: linear-gradient(180deg, #ffe45f 0%, #ffcc00 58%, #d6a800 100%);
+      background: linear-gradient(180deg, #ffe878 0%, #ffcc00 58%, #d6a800 100%);
     }
 
     .btn-whatsapp {
@@ -195,17 +298,18 @@
     .canal-wrapper {
       margin-top: 4px;
       background: rgba(0,0,0,0.54);
-      border: 1px solid rgba(255,204,0,0.48);
+      border: 1px solid rgba(255,211,106,0.52);
       border-radius: 26px;
       padding: 17px;
       box-shadow:
-        0 0 0 1px rgba(255,204,0,0.07),
-        0 14px 38px rgba(0,0,0,0.62);
+        0 0 0 1px rgba(255,211,106,0.10),
+        0 14px 38px rgba(0,0,0,0.62),
+        0 0 24px rgba(111,216,255,0.12);
       backdrop-filter: blur(6px);
     }
 
     .btn-extra {
-      background: linear-gradient(180deg, #ff4a4a 0%, #e00000 58%, #8a0000 100%);
+      background: linear-gradient(180deg, #ff4a4a 0%, #d60000 58%, #800000 100%);
       color: #fff;
       font-size: 1.55rem;
       border: 2px solid rgba(255,255,255,0.95);
@@ -225,7 +329,7 @@
     }
 
     .canal-text b {
-      color: var(--gold);
+      color: var(--olympus-gold);
     }
 
     .footer-status {
@@ -237,15 +341,15 @@
 
     .status-box {
       background: rgba(0,0,0,0.56);
-      border: 2px solid var(--gold);
+      border: 2px solid var(--olympus-gold);
       border-radius: 14px;
       padding: 12px 8px;
-      color: var(--gold);
+      color: var(--olympus-gold);
       font-size: 0.80rem;
       font-weight: 900;
       text-transform: uppercase;
       box-shadow:
-        0 0 12px rgba(255,204,0,0.18),
+        0 0 12px rgba(255,211,106,0.22),
         0 8px 18px rgba(0,0,0,0.44);
       text-shadow: 0 2px 4px rgba(0,0,0,0.85);
     }
@@ -253,7 +357,7 @@
     .extra-info {
       margin-top: 16px;
       font-size: 0.68rem;
-      color: rgba(255,255,255,0.58);
+      color: rgba(255,255,255,0.62);
       font-weight: 700;
       text-shadow: 0 2px 4px rgba(0,0,0,0.85);
     }
@@ -263,7 +367,7 @@
       right: 7vw;
       bottom: 52px;
       z-index: 3;
-      width: clamp(180px, 22vw, 245px);
+      width: clamp(190px, 25vw, 315px);
       pointer-events: none;
       opacity: 0.98;
       perspective: 1200px;
@@ -277,10 +381,11 @@
       display: block;
       object-fit: contain;
       filter:
-        drop-shadow(0 18px 34px rgba(0,0,0,0.72))
-        contrast(101%)
-        brightness(100%)
-        saturate(101%);
+        drop-shadow(0 22px 42px rgba(0,0,0,0.78))
+        drop-shadow(0 0 18px rgba(111,216,255,0.22))
+        contrast(103%)
+        brightness(102%)
+        saturate(106%);
       animation: character3D 7s ease-in-out infinite;
     }
 
@@ -289,7 +394,7 @@
         transform: translateY(0px);
       }
       50% {
-        transform: translateY(-9px);
+        transform: translateY(-10px);
       }
     }
 
@@ -302,7 +407,6 @@
       }
     }
 
-    /* LLUVIA DE MONEDAS */
     .coin-rain {
       position: fixed;
       inset: 0;
@@ -384,7 +488,6 @@
       }
     }
 
-    /* MONEDAS QUE EXPLOTAN DESDE LOS BOTONES */
     .coin-burst {
       position: fixed;
       left: 0;
@@ -444,19 +547,19 @@
       right: 42px;
       z-index: 1000;
       text-align: center;
-      color: var(--gold);
+      color: var(--olympus-gold);
       animation: bounce 0.8s infinite;
     }
 
     #chat-pointer .pointer-label {
-      background: var(--gold);
+      background: var(--olympus-gold);
       color: #000;
       padding: 7px 14px;
       border-radius: 12px;
       font-weight: 900;
       font-size: 0.72rem;
       margin-bottom: 6px;
-      box-shadow: 0 0 14px rgba(255,204,0,0.45);
+      box-shadow: 0 0 14px rgba(255,211,106,0.45);
       white-space: nowrap;
     }
 
@@ -469,7 +572,6 @@
       }
     }
 
-    /* TABLET */
     @media (max-width: 1024px) {
       .page {
         padding-left: 5vw;
@@ -481,11 +583,10 @@
 
       .character-container {
         right: 4vw;
-        width: clamp(170px, 24vw, 230px);
+        width: clamp(180px, 26vw, 280px);
       }
     }
 
-    /* CELULAR */
     @media (max-width: 768px) {
       body {
         background-attachment: scroll;
@@ -501,9 +602,13 @@
         width: min(94vw, 430px);
       }
 
-      h1 {
+      .titulo-olimpo {
         font-size: clamp(2.9rem, 14vw, 4rem);
-        margin-bottom: 18px;
+        margin-bottom: 20px;
+      }
+
+      .titulo-olimpo::before {
+        inset: -28px -36px;
       }
 
       .btn-group {
@@ -539,9 +644,9 @@
       }
 
       .character-container {
-        right: -72px;
+        right: -82px;
         bottom: 50px;
-        width: 190px;
+        width: 225px;
         opacity: 0.58;
         z-index: 2;
       }
@@ -560,9 +665,8 @@
       }
     }
 
-    /* CELULAR MUY ANGOSTO */
     @media (max-width: 380px) {
-      h1 {
+      .titulo-olimpo {
         font-size: 3rem;
       }
 
@@ -584,8 +688,8 @@
       }
 
       .character-container {
-        width: 170px;
-        right: -76px;
+        width: 190px;
+        right: -84px;
       }
     }
   </style>
@@ -593,16 +697,15 @@
 
 <body>
 
-  <!-- LLUVIA DE MONEDAS DE FONDO -->
   <div class="coin-rain" id="coinRain"></div>
 
   <div class="character-container" id="personaje">
-    <img src="assets/img/personaje.png" class="character-bg" alt="Personaje Oasis">
+    <img src="personaje-zeus.png" class="character-bg" alt="Personaje Olimpo">
   </div>
 
   <main class="page">
     <section class="content">
-      <h1>OASIS</h1>
+      <h1 class="titulo-olimpo">OLIMPO</h1>
 
       <div class="btn-group">
 
@@ -646,7 +749,7 @@
 
       </div>
 
-      <p class="extra-info">OASIS ELITE © 2026 - SOPORTE 24HS</p>
+      <p class="extra-info">OLIMPO © 2026 - SOPORTE 24HS</p>
     </section>
   </main>
 
@@ -662,17 +765,12 @@
     }
 
     function abrirRetiros() {
-      if (window.callbell && typeof window.callbell.open === 'function') {
-        window.callbell.open();
-      } else {
-        let intento = setInterval(() => {
-          if (window.callbell && typeof window.callbell.open === 'function') {
-            window.callbell.open();
-            clearInterval(intento);
-          }
-        }, 500);
-
-        setTimeout(() => clearInterval(intento), 6000);
+      if (typeof window.rw === 'function') {
+        try {
+          window.rw('open');
+        } catch (error) {
+          console.log('Webchat cargando...');
+        }
       }
 
       const arrow = document.getElementById('chat-pointer');
@@ -702,7 +800,6 @@
       personaje.style.transform = 'translateY(0) rotateY(0deg) rotateX(0deg)';
     });
 
-    /* CREAR LLUVIA DE MONEDAS */
     const coinRain = document.getElementById('coinRain');
     const coinAmount = window.innerWidth < 768 ? 18 : 34;
 
@@ -732,7 +829,6 @@
       coinRain.appendChild(coin);
     }
 
-    /* EXPLOSIÓN DE MONEDAS AL PRESIONAR BOTONES */
     function createCoinBurst(button) {
       const rect = button.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
@@ -777,24 +873,25 @@
     });
   </script>
 
+  <!-- Webchat Widget -->
   <script>
-    window.callbellSettings = {
-      uuid: "7980a6c9-f027-4666-82a7-4258788e21dd",
-      script_token: "GMfea5tb5E84JacftXguuZba"
-    };
-
-    (function () {
-      var w = window;
-      var d = document;
-      var l = function () {
-        var s = d.createElement('script');
-        s.async = true;
-        s.src = 'https://dash.callbell.eu/include/livechat/' + window.callbellSettings.script_token + '/' + window.callbellSettings.uuid + '.js';
-        var x = d.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
+    (function(w,d,s,o,f,js,fjs){
+      w['RedesWebchat'] = o;
+      w[o] = w[o] || function(){
+        (w[o].q = w[o].q || []).push(arguments);
       };
-      w.addEventListener('load', l, false);
-    })();
+      js = d.createElement(s);
+      fjs = d.getElementsByTagName(s)[0];
+      js.id = o;
+      js.src = f;
+      js.async = 1;
+      fjs.parentNode.insertBefore(js, fjs);
+    }(window, document, 'script', 'rw', 'https://central.redeslink.app/widget.js'));
+
+    rw('init', {
+      organizationId: 'b292f0c5-3281-4153-9e67-c47feea51713',
+      accountId: '4168e83a-187f-4d90-9d9f-b520e905cd07'
+    });
   </script>
 
 </body>
