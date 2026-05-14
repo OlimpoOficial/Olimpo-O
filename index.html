@@ -11,10 +11,13 @@
 
   <style>
     :root {
-      --gold: #ffcc00;
-      --olympus-gold: #ffd36a;
-      --olympus-blue: #6fd8ff;
-      --olympus-red: #b91414;
+      --lila: #c77dff;
+      --lila-light: #ead7ff;
+      --lila-mid: #9d4edd;
+      --lila-dark: #5a189a;
+      --olympus-gold: #c77dff;
+      --olympus-blue: #9d4edd;
+      --olympus-red: #7b2cbf;
       --green: #25d366;
       --green-dark: #128c44;
     }
@@ -56,9 +59,9 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(circle at 22% 18%, rgba(111, 216, 255, 0.16), transparent 32%),
-        radial-gradient(circle at 50% 8%, rgba(255, 211, 106, 0.14), transparent 38%),
-        radial-gradient(circle at 18% 58%, rgba(185, 20, 20, 0.10), transparent 35%),
+        radial-gradient(circle at 22% 18%, rgba(199, 125, 255, 0.18), transparent 32%),
+        radial-gradient(circle at 50% 8%, rgba(157, 78, 221, 0.16), transparent 38%),
+        radial-gradient(circle at 18% 58%, rgba(90, 24, 154, 0.18), transparent 35%),
         rgba(0,0,0,0.18);
       z-index: 0;
       pointer-events: none;
@@ -72,9 +75,9 @@
         linear-gradient(
           115deg,
           transparent 0%,
-          rgba(111, 216, 255, 0.06) 30%,
+          rgba(199, 125, 255, 0.08) 30%,
           transparent 47%,
-          rgba(255, 211, 106, 0.06) 65%,
+          rgba(157, 78, 221, 0.08) 65%,
           transparent 100%
         );
       mix-blend-mode: screen;
@@ -124,9 +127,9 @@
       font-weight: 900;
       text-shadow:
         0 0 7px rgba(255,255,255,0.95),
-        0 0 18px rgba(111,216,255,0.90),
-        0 0 36px rgba(255,211,106,0.65),
-        0 0 70px rgba(185,20,20,0.38),
+        0 0 18px rgba(199,125,255,0.95),
+        0 0 36px rgba(157,78,221,0.72),
+        0 0 70px rgba(90,24,154,0.55),
         0 8px 26px rgba(0,0,0,1);
       animation: tituloRespira 4s ease-in-out infinite;
       z-index: 2;
@@ -137,9 +140,9 @@
       position: absolute;
       inset: -36px -58px;
       background:
-        radial-gradient(circle at 20% 48%, rgba(111,216,255,0.50), transparent 42%),
-        radial-gradient(circle at 70% 48%, rgba(255,211,106,0.38), transparent 43%),
-        radial-gradient(circle at 50% 60%, rgba(185,20,20,0.28), transparent 45%),
+        radial-gradient(circle at 20% 48%, rgba(199,125,255,0.55), transparent 42%),
+        radial-gradient(circle at 70% 48%, rgba(157,78,221,0.45), transparent 43%),
+        radial-gradient(circle at 50% 60%, rgba(90,24,154,0.42), transparent 45%),
         linear-gradient(90deg, transparent, rgba(255,255,255,0.20), transparent);
       filter: blur(23px);
       border-radius: 50%;
@@ -159,16 +162,16 @@
       background: linear-gradient(
         90deg,
         transparent,
-        var(--olympus-blue),
+        var(--lila-light),
         #ffffff,
-        var(--olympus-gold),
+        var(--lila),
         transparent
       );
       border-radius: 999px;
       box-shadow:
         0 0 12px rgba(255,255,255,0.88),
-        0 0 24px rgba(111,216,255,0.72),
-        0 0 34px rgba(255,211,106,0.48);
+        0 0 24px rgba(199,125,255,0.82),
+        0 0 34px rgba(157,78,221,0.62);
     }
 
     @keyframes tituloRespira {
@@ -218,7 +221,7 @@
       overflow: hidden;
       transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
       box-shadow:
-        0 7px 0 rgba(125, 92, 0, 0.96),
+        0 7px 0 rgba(65, 12, 120, 0.96),
         0 14px 28px rgba(0, 0, 0, 0.56),
         inset 0 2px 0 rgba(255, 255, 255, 0.58);
     }
@@ -230,7 +233,7 @@
       background: linear-gradient(
         120deg,
         transparent 0%,
-        rgba(255,255,255,0.38) 45%,
+        rgba(255,255,255,0.42) 45%,
         transparent 70%
       );
       transform: translateX(-130%);
@@ -244,80 +247,58 @@
 
     .btn:hover {
       transform: translateY(-2px) scale(1.01);
-      filter: brightness(1.05);
+      filter: brightness(1.07);
     }
 
     .btn:active {
       transform: translateY(4px);
       box-shadow:
-        0 2px 0 rgba(125, 92, 0, 0.96),
+        0 2px 0 rgba(65, 12, 120, 0.96),
         0 8px 16px rgba(0, 0, 0, 0.38),
         inset 0 1px 0 rgba(255, 255, 255, 0.35);
     }
 
     .btn-play {
-      background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 55%, #cfcfcf 100%);
-      border: 3px solid var(--olympus-gold);
+      background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 55%, #d9c6ff 100%);
+      border: 3px solid var(--lila);
       font-size: 1.15rem;
     }
 
     .btn-main {
-      background: linear-gradient(180deg, #ffe878 0%, #ffcc00 58%, #d6a800 100%);
-    }
-
-    .btn-whatsapp {
-      background: linear-gradient(180deg, #37f38e 0%, var(--green) 58%, var(--green-dark) 100%);
-      color: white;
-      min-height: 50px;
-      font-size: 0.92rem;
+      background: linear-gradient(180deg, #ead7ff 0%, #c77dff 58%, #7b2cbf 100%);
+      color: #ffffff;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.45);
       box-shadow:
-        0 6px 0 #0b6d32,
-        0 12px 22px rgba(0, 0, 0, 0.36),
-        inset 0 2px 0 rgba(255, 255, 255, 0.38);
+        0 7px 0 #4b0f82,
+        0 14px 28px rgba(0, 0, 0, 0.56),
+        inset 0 2px 0 rgba(255, 255, 255, 0.58);
     }
 
-    #menu-respaldo {
-      display: none;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: -3px;
-      animation: openMenu 0.25s ease;
-    }
-
-    @keyframes openMenu {
-      from {
-        opacity: 0;
-        transform: translateY(-8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .btn-extra {
+      background: linear-gradient(180deg, #ead7ff 0%, #c77dff 56%, #7b2cbf 100%);
+      color: #fff;
+      font-size: 1.55rem;
+      border: 2px solid rgba(255,255,255,0.95);
+      margin-bottom: 12px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      box-shadow:
+        0 7px 0 #4b0f82,
+        0 14px 26px rgba(0,0,0,0.46),
+        0 0 24px rgba(199,125,255,0.28),
+        inset 0 2px 0 rgba(255,255,255,0.42);
     }
 
     .canal-wrapper {
       margin-top: 4px;
       background: rgba(0,0,0,0.54);
-      border: 1px solid rgba(255,211,106,0.52);
+      border: 1px solid rgba(199,125,255,0.58);
       border-radius: 26px;
       padding: 17px;
       box-shadow:
-        0 0 0 1px rgba(255,211,106,0.10),
+        0 0 0 1px rgba(199,125,255,0.12),
         0 14px 38px rgba(0,0,0,0.62),
-        0 0 24px rgba(111,216,255,0.12);
+        0 0 24px rgba(199,125,255,0.18);
       backdrop-filter: blur(6px);
-    }
-
-    .btn-extra {
-      background: linear-gradient(180deg, #ff4a4a 0%, #d60000 58%, #800000 100%);
-      color: #fff;
-      font-size: 1.55rem;
-      border: 2px solid rgba(255,255,255,0.95);
-      margin-bottom: 12px;
-      box-shadow:
-        0 7px 0 #610000,
-        0 14px 26px rgba(0,0,0,0.46),
-        inset 0 2px 0 rgba(255,255,255,0.42);
     }
 
     .canal-text {
@@ -329,7 +310,8 @@
     }
 
     .canal-text b {
-      color: var(--olympus-gold);
+      color: var(--lila-light);
+      text-shadow: 0 0 12px rgba(199,125,255,0.85);
     }
 
     .footer-status {
@@ -341,15 +323,15 @@
 
     .status-box {
       background: rgba(0,0,0,0.56);
-      border: 2px solid var(--olympus-gold);
+      border: 2px solid var(--lila);
       border-radius: 14px;
       padding: 12px 8px;
-      color: var(--olympus-gold);
+      color: var(--lila-light);
       font-size: 0.80rem;
       font-weight: 900;
       text-transform: uppercase;
       box-shadow:
-        0 0 12px rgba(255,211,106,0.22),
+        0 0 12px rgba(199,125,255,0.32),
         0 8px 18px rgba(0,0,0,0.44);
       text-shadow: 0 2px 4px rgba(0,0,0,0.85);
     }
@@ -382,7 +364,7 @@
       object-fit: contain;
       filter:
         drop-shadow(0 22px 42px rgba(0,0,0,0.78))
-        drop-shadow(0 0 18px rgba(111,216,255,0.22))
+        drop-shadow(0 0 18px rgba(199,125,255,0.28))
         contrast(103%)
         brightness(102%)
         saturate(106%);
@@ -422,11 +404,11 @@
       height: var(--size);
       border-radius: 50%;
       background:
-        radial-gradient(circle at 32% 28%, #fff8b0 0%, #ffe66b 16%, #ffcc00 42%, #c99100 70%, #7b4f00 100%);
+        radial-gradient(circle at 32% 28%, #f6e7ff 0%, #dcb4ff 16%, #c77dff 42%, #7b2cbf 70%, #3c096c 100%);
       box-shadow:
         inset 0 0 0 2px rgba(255,255,255,0.26),
-        inset 0 0 0 5px rgba(255,204,0,0.22),
-        0 0 12px rgba(255,204,0,0.32),
+        inset 0 0 0 5px rgba(199,125,255,0.22),
+        0 0 12px rgba(199,125,255,0.38),
         0 8px 16px rgba(0,0,0,0.35);
       opacity: var(--opacity);
       left: var(--left);
@@ -443,7 +425,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(80, 48, 0, 0.75);
+      color: rgba(45, 8, 80, 0.78);
       font-size: calc(var(--size) * 0.52);
       font-weight: 900;
       text-shadow: 0 1px 1px rgba(255,255,255,0.45);
@@ -454,7 +436,7 @@
       position: absolute;
       inset: 18%;
       border-radius: 50%;
-      border: 1px solid rgba(110,70,0,0.45);
+      border: 1px solid rgba(65,16,115,0.48);
     }
 
     @keyframes coinFall {
@@ -488,54 +470,65 @@
       }
     }
 
-    .coin-burst {
+    .ray-burst {
       position: fixed;
       left: 0;
       top: 0;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
+      width: 8px;
+      height: 70px;
       z-index: 9999;
       pointer-events: none;
-      background:
-        radial-gradient(circle at 32% 28%, #fff8b0 0%, #ffe66b 16%, #ffcc00 42%, #c99100 70%, #7b4f00 100%);
+      border-radius: 999px;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0) 0%,
+        rgba(235,215,255,0.98) 20%,
+        rgba(199,125,255,1) 50%,
+        rgba(123,44,191,0.95) 78%,
+        rgba(255,255,255,0) 100%
+      );
       box-shadow:
-        inset 0 0 0 2px rgba(255,255,255,0.25),
-        0 0 14px rgba(255,204,0,0.45),
-        0 8px 16px rgba(0,0,0,0.30);
-      animation: burstCoin 850ms ease-out forwards;
+        0 0 12px rgba(199,125,255,0.9),
+        0 0 24px rgba(157,78,221,0.75),
+        0 0 38px rgba(123,44,191,0.55);
+      animation: burstRay 780ms ease-out forwards;
     }
 
-    .coin-burst::before {
-      content: "$";
+    .ray-burst::before {
+      content: "";
       position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(80, 48, 0, 0.78);
-      font-size: 12px;
-      font-weight: 900;
+      inset: -8px;
+      background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(255,255,255,0.9),
+        rgba(199,125,255,0.9),
+        transparent
+      );
+      filter: blur(7px);
+      border-radius: 999px;
     }
 
-    @keyframes burstCoin {
+    @keyframes burstRay {
       0% {
         opacity: 1;
         transform:
           translate(-50%, -50%)
           translate(0, 0)
-          scale(0.45)
-          rotate(0deg);
+          scaleY(0.2)
+          rotate(var(--rotate));
       }
+
       70% {
         opacity: 1;
       }
+
       100% {
         opacity: 0;
         transform:
           translate(-50%, -50%)
           translate(var(--x), var(--y))
-          scale(var(--scale))
+          scaleY(var(--scale))
           rotate(var(--rotate));
       }
     }
@@ -547,19 +540,19 @@
       right: 42px;
       z-index: 1000;
       text-align: center;
-      color: var(--olympus-gold);
+      color: var(--lila-light);
       animation: bounce 0.8s infinite;
     }
 
     #chat-pointer .pointer-label {
-      background: var(--olympus-gold);
-      color: #000;
+      background: var(--lila);
+      color: #fff;
       padding: 7px 14px;
       border-radius: 12px;
       font-weight: 900;
       font-size: 0.72rem;
       margin-bottom: 6px;
-      box-shadow: 0 0 14px rgba(255,211,106,0.45);
+      box-shadow: 0 0 14px rgba(199,125,255,0.65);
       white-space: nowrap;
     }
 
@@ -713,26 +706,16 @@
           🎰 ¡Jugá ya! 🎰
         </a>
 
-        <button onclick="toggleCargas()" class="btn btn-main">
+        <a href="https://walink.ac/balenoficial" target="_blank" rel="noopener noreferrer" class="btn btn-main">
           💳 Cargas respaldo
-        </button>
-
-        <div id="menu-respaldo">
-          <a href="https://wa.me/5491122334455" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-            ✅ Respaldo 1
-          </a>
-
-          <a href="https://wa.me/5491166778899" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-            ✅ Respaldo 2
-          </a>
-        </div>
+        </a>
 
         <button onclick="abrirRetiros()" class="btn btn-main">
           💰 Retiros
         </button>
 
         <div class="canal-wrapper">
-          <a href="https://whatsapp.com/channel/0029Vb7TNUXJP20yPDX5Ga1p" target="_blank" rel="noopener noreferrer" class="btn btn-extra">
+          <a href="https://whatsapp.com/channel/0029Vb69Ttt4SpkFrH03OU0h" target="_blank" rel="noopener noreferrer" class="btn btn-extra">
             30% EXTRA 💎
           </a>
 
@@ -759,11 +742,6 @@
   </div>
 
   <script>
-    function toggleCargas() {
-      const menu = document.getElementById('menu-respaldo');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
-
     function abrirRetiros() {
       if (typeof window.rw === 'function') {
         try {
@@ -829,46 +807,45 @@
       coinRain.appendChild(coin);
     }
 
-    function createCoinBurst(button) {
+    function createRayBurst(button) {
       const rect = button.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
 
-      const amount = window.innerWidth < 768 ? 12 : 18;
+      const amount = window.innerWidth < 768 ? 12 : 20;
 
       for (let i = 0; i < amount; i++) {
-        const coin = document.createElement('span');
-        coin.className = 'coin-burst';
+        const ray = document.createElement('span');
+        ray.className = 'ray-burst';
 
         const angle = Math.random() * Math.PI * 2;
-        const distance = Math.random() * 95 + 45;
+        const distance = Math.random() * 110 + 45;
         const x = Math.cos(angle) * distance;
-        const y = Math.sin(angle) * distance - 35;
+        const y = Math.sin(angle) * distance;
 
-        const size = Math.random() * 12 + 15;
-        const scale = Math.random() * 0.7 + 0.65;
-        const rotate = Math.floor(Math.random() * 720 - 360) + 'deg';
+        const height = Math.random() * 45 + 45;
+        const scale = Math.random() * 0.9 + 0.75;
+        const rotate = Math.floor((angle * 180) / Math.PI) + 'deg';
 
-        coin.style.left = centerX + 'px';
-        coin.style.top = centerY + 'px';
-        coin.style.width = size + 'px';
-        coin.style.height = size + 'px';
-        coin.style.setProperty('--x', x + 'px');
-        coin.style.setProperty('--y', y + 'px');
-        coin.style.setProperty('--scale', scale);
-        coin.style.setProperty('--rotate', rotate);
+        ray.style.left = centerX + 'px';
+        ray.style.top = centerY + 'px';
+        ray.style.height = height + 'px';
+        ray.style.setProperty('--x', x + 'px');
+        ray.style.setProperty('--y', y + 'px');
+        ray.style.setProperty('--scale', scale);
+        ray.style.setProperty('--rotate', rotate);
 
-        document.body.appendChild(coin);
+        document.body.appendChild(ray);
 
         setTimeout(() => {
-          coin.remove();
-        }, 900);
+          ray.remove();
+        }, 820);
       }
     }
 
     document.querySelectorAll('.btn').forEach((button) => {
       button.addEventListener('click', () => {
-        createCoinBurst(button);
+        createRayBurst(button);
       });
     });
   </script>
